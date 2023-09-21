@@ -19,11 +19,11 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => ['auth:sanctum', 'role:admin']], function () {
     Route::get('/iban-numbers', [IbanNumberController::class, 'index']);
 });
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => ['auth:sanctum', 'role:user']], function () {
     Route::post('/iban-number-checker', [IbanNumberController::class, 'store']);
 });
 

@@ -17,7 +17,7 @@ class IbanNumberResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user' => new UserResource($this->whenLoaded('user')),
+            //'user' => new UserResource($this->whenLoaded('user')),
             'iban_number' => $this->iban_number,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
