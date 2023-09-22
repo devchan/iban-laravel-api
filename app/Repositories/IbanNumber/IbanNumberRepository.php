@@ -9,9 +9,9 @@ class IbanNumberRepository extends Repository
 
     public function get()
     {
-        return $this->getModel()::with(['user' ])
+        return $this->getModel()
         ->latest()
-        ->paginate(request('per_page'));
+        ->get();
     }
 
 }
